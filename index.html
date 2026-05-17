@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebLaunch | Premium Website Building Service</title>
+    <meta name="description" content="We build vibrant, professional frontend website frames. Fixed pricing, premium quality. Launch your dream site today.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <nav>
+        <div class="brand">WebLaunch ✨</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#portal">Start Project</a>
+        </div>
+        <a href="#portal" class="btn-primary">Book Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Launch Your <span>Dream Web Experience</span> 🚀</h1>
+            <p>We build breathtaking, pixel-perfect website frontends. You bring the vision, we provide the ultimate digital frame.</p>
+            <a href="#pricing" class="btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">View Our Packages</a>
+        </div>
+        <div class="hero-image">
+            <img src="assets/hero.png" alt="Abstract 3D Tech Illustration" id="hero-img">
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>What You Can Expect 💎</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Stunning Aesthetics</h3>
+                <p>Vibrant colors, smooth animations, and modern glassmorphism that wows your users instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Optimized, semantic code. We deliver the pure frontend frame, ready for you to plug in your backend.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Fully Responsive</h3>
+                <p>Flawless design on desktops, tablets, and mobile devices. A seamless experience everywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-header">
+            <h2>Our Recent Work 🎨</h2>
+            <p>A glimpse into the stunning frames we've built.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="assets/portfolio_1.png" alt="E-commerce Design">
+                <div class="portfolio-overlay">
+                    <h3>Neon E-Commerce</h3>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/portfolio_2.png" alt="SaaS Dashboard">
+                <div class="portfolio-overlay">
+                    <h3>Analytics Dashboard</h3>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/portfolio_3.png" alt="Creative Agency">
+                <div class="portfolio-overlay">
+                    <h3>Creative Agency</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="pricing-header">
+            <h2>Clear, Fixed Pricing 💰</h2>
+            <p>No hidden fees. Choose what fits your needs.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Core Frame Offer -->
+            <div class="price-card">
+                <h3>The Core Frame</h3>
+                <p style="color: var(--text-muted)">Perfect for teams with their own developers.</p>
+                <div class="price">$999 <span>/ fixed</span></div>
+                <ul class="price-features">
+                    <li>Premium UI/UX Design</li>
+                    <li>Responsive HTML/CSS/JS</li>
+                    <li>Source Code Delivery</li>
+                    <li>You manage hosting & backend</li>
+                </ul>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('core')">Select Plan</a>
+            </div>
+
+            <!-- Upsell Offer -->
+            <div class="price-card featured">
+                <div class="badge">Most Popular Upsell</div>
+                <h3>Full Stack Setup</h3>
+                <p style="color: var(--text-muted)">Guided integration—you retain full control of your secure credentials.</p>
+                <div class="price">$2,999 <span>/ fixed</span></div>
+                <ul class="price-features">
+                    <li>Everything in Core Frame</li>
+                    <li>Database Integration Setup</li>
+                    <li>Collaborative Deployment</li>
+                    <li>No password sharing required</li>
+                </ul>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('pro')">Select Plan</a>
+            </div>
+
+            <!-- Site Revamp Offer -->
+            <div class="price-card">
+                <h3>Site Revamp & Edits</h3>
+                <p style="color: var(--text-muted)">Give your existing site a modern facelift.</p>
+                <div class="price">$599 <span>/ fixed</span></div>
+                <ul class="price-features">
+                    <li>UI/UX Modernization</li>
+                    <li>Performance Optimization</li>
+                    <li>Responsive Fixes</li>
+                    <li>Delivered as clean code</li>
+                </ul>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('revamp')">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portal" class="portal">
+        <div class="portal-container">
+            <h2>Project Submission Portal 📋</h2>
+            <p class="subtext">Ready to start? Submit your requirements and let's build something amazing.</p>
+            
+            <form id="submission-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="package">Selected Package</label>
+                    <select id="package" required>
+                        <option value="core">The Core Frame ($999)</option>
+                        <option value="pro">Full Stack Setup ($2,999)</option>
+                        <option value="revamp">Site Revamp & Edits ($599)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Project Notes & Details</label>
+                    <textarea id="notes" rows="4" placeholder="Tell us about your vision, color preferences, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Specifications / Mockups (Optional)</label>
+                    <div class="file-upload">
+                        <input type="file" id="document" accept=".pdf,.doc,.docx,.png,.jpg,.zip">
+                        <p id="file-name">Drag & drop a file here, or click to browse</p>
+                    </div>
+                </div>
+
+                <div class="payment-section">
+                    <h3>Secure Payment Portal 💳</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Total due today: <strong id="total-price" style="color: white; font-size: 1.2rem;">$999.00</strong></p>
+                    
+                    <div class="card-element">
+                        <span>🔒</span> You will be redirected to secure checkout upon submission.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary submit-btn">Pay & Submit Project</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 WebLaunch Service. All rights reserved. Built with 💻 and ☕</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
