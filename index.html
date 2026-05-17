@@ -83,8 +83,8 @@
 
     <section id="pricing" class="pricing">
         <div class="pricing-header">
-            <h2>Clear, Fixed Pricing 💰</h2>
-            <p>No hidden fees. Choose what fits your needs.</p>
+            <h2>Clear Pricing 💰</h2>
+            <p>Fixed project packages or ongoing support. No hidden fees.</p>
         </div>
         <div class="pricing-grid">
             <!-- Core Frame Offer -->
@@ -129,6 +129,22 @@
                 </ul>
                 <a href="#portal" class="btn-primary" onclick="selectPackage('revamp')">Select Plan</a>
             </div>
+
+            <!-- Ongoing Support Subscription -->
+            <div class="price-card subscription">
+                <div class="badge">Ongoing Support</div>
+                <h3>Website Support & Edits</h3>
+                <p style="color: var(--text-muted)">Monthly edits, fixes, and updates for your live site.</p>
+                <div class="price">$99 <span>/ month</span></div>
+                <p class="price-billing-note">12-month minimum · $1,188 billed today</p>
+                <ul class="price-features">
+                    <li>Content & copy updates</li>
+                    <li>Bug fixes & small design tweaks</li>
+                    <li>Performance & responsive checks</li>
+                    <li>Priority email support</li>
+                </ul>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('support')">Select Plan</a>
+            </div>
         </div>
     </section>
 
@@ -154,6 +170,7 @@
                         <option value="core">The Core Frame ($999)</option>
                         <option value="pro">Full Stack Setup ($2,999)</option>
                         <option value="revamp">Site Revamp & Edits ($599)</option>
+                        <option value="support">Website Support & Edits ($99/mo · $1,188/yr)</option>
                     </select>
                 </div>
                 
@@ -172,7 +189,12 @@
 
                 <div class="payment-section">
                     <h3>Secure Payment Portal 💳</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Total due today: <strong id="total-price" style="color: white; font-size: 1.2rem;">$999.00</strong></p>
+                    <p id="payment-plan-summary" class="payment-plan-summary" hidden></p>
+                    <p class="payment-total-line">
+                        <span id="payment-total-label">Total due today:</span>
+                        <strong id="total-price">$999.00</strong>
+                    </p>
+                    <p id="payment-billing-note" class="payment-billing-note" hidden></p>
                     
                     <div class="card-element">
                         <span>🔒</span> You will be redirected to secure checkout upon submission.
