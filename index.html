@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebLaunch | Premium Website Building Service</title>
     <meta name="description" content="We build vibrant, professional frontend website frames. Fixed pricing, premium quality. Launch your dream site today.">
+    <link rel="icon" href="assets/icon.png" type="image/png" sizes="128x128">
+    <link rel="apple-touch-icon" href="assets/logo.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +14,10 @@
     <div class="shape shape-2"></div>
 
     <nav>
-        <div class="brand">WebLaunch ✨</div>
+        <a href="#" class="brand" aria-label="WebLaunch home">
+            <img src="assets/logo.png" alt="" class="brand-logo" width="40" height="40">
+            <span class="brand-text">WebLaunch</span>
+        </a>
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#portfolio">Portfolio</a>
@@ -98,7 +103,7 @@
                     <li>Source Code Delivery</li>
                     <li>You manage hosting & backend</li>
                 </ul>
-                <a href="#portal" class="btn-primary" onclick="selectPackage('core')">Select Plan</a>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('core')">Select Package</a>
             </div>
 
             <!-- Upsell Offer -->
@@ -113,7 +118,7 @@
                     <li>Collaborative Deployment</li>
                     <li>No password sharing required</li>
                 </ul>
-                <a href="#portal" class="btn-primary" onclick="selectPackage('pro')">Select Plan</a>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('pro')">Select Package</a>
             </div>
 
             <!-- Site Revamp Offer -->
@@ -127,7 +132,7 @@
                     <li>Responsive Fixes</li>
                     <li>Delivered as clean code</li>
                 </ul>
-                <a href="#portal" class="btn-primary" onclick="selectPackage('revamp')">Select Plan</a>
+                <a href="#portal" class="btn-primary" onclick="selectPackage('revamp')">Select Package</a>
             </div>
 
             <!-- Ongoing Support Subscription -->

@@ -33,24 +33,28 @@ const packages = {
     core: {
         name: 'The Core Frame',
         type: 'one-time',
-        total: 999
+        total: 999,
+        stripeUrl: 'https://buy.stripe.com/eVq6oJ5Cf2sx5978vKenS01'
     },
     pro: {
         name: 'Full Stack Setup',
         type: 'one-time',
-        total: 2999
+        total: 2999,
+        stripeUrl: 'https://buy.stripe.com/7sY4gBaWzebfcBz7rGenS00'
     },
     revamp: {
         name: 'Site Revamp & Edits',
         type: 'one-time',
-        total: 599
+        total: 599,
+        stripeUrl: 'https://buy.stripe.com/8x2dRbfcP7MR8lj5jyenS02'
     },
     support: {
         name: 'Website Support & Edits',
         type: 'subscription',
         monthly: 99,
         termMonths: 12,
-        total: 1188 // 12 × $99, charged upfront at checkout
+        total: 1188, // 12 × $99, charged upfront at checkout
+        stripeUrl: 'https://buy.stripe.com/9B69AV0hVd7b453aDSenS03'
     }
 };
 
@@ -63,6 +67,17 @@ function formatCurrency(amount) {
 
 function getCheckoutTotal(packageId) {
     return packages[packageId].total;
+}
+
+function getStripeCheckoutUrl(packageId, email) {
+    const pkg = packages[packageId];
+    if (!pkg?.stripeUrl) return null;
+
+    const url = new URL(pkg.stripeUrl);
+    if (email) {
+        url.searchParams.set('prefilled_email', email);
+    }
+    return url.toString();
 }
 
 // Update pricing based on package selection
@@ -125,49 +140,24 @@ function selectPackage(packageId) {
     }
 }
 
-// Form Submission Simulation
+// Redirect to Stripe Checkout on form submit
 const submissionForm = document.getElementById('submission-form');
 if (submissionForm) {
     submissionForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+
+        const email = document.getElementById('email').value.trim();
         const packageType = packageSelect.value;
-        const pkg = packages[packageType];
-        const price = formatCurrency(pkg.total);
-        
+        const checkoutUrl = getStripeCheckoutUrl(packageType, email);
+
+        if (!checkoutUrl) return;
+
         const submitBtn = this.querySelector('.submit-btn');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = 'Processing Payment...';
+        submitBtn.textContent = 'Redirecting to checkout...';
         submitBtn.style.opacity = '0.7';
         submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            let message;
-            if (pkg.type === 'subscription') {
-                message =
-                    `Success! Thank you, ${name}. Your ${pkg.name} plan ` +
-                    `(${formatCurrency(pkg.monthly)}/mo, ${pkg.termMonths}-month minimum) ` +
-                    `has been submitted. ${price} will be charged at checkout. ` +
-                    `We will contact you at ${email} shortly.`;
-            } else {
-                message =
-                    `Success! Thank you, ${name}. Your payment of ${price} has been processed ` +
-                    `and your project details have been submitted. We will contact you at ${email} shortly.`;
-            }
 
-            alert(message);
-            submitBtn.textContent = originalText;
-            submitBtn.style.opacity = '1';
-            submitBtn.disabled = false;
-            submissionForm.reset();
-            fileNameDisplay.textContent = 'Drag & drop a file here, or click to browse';
-            fileNameDisplay.style.color = 'inherit';
-            
-            updatePaymentDisplay(packageSelect.value);
-        }, 2000);
+        window.location.href = checkoutUrl;
     });
 }
 
